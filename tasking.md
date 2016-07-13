@@ -2,9 +2,13 @@
 
 * ###/products
 
-1. return 201 when POST
+1. return 201 when POST  
+estimate :10 min  
+real :8 min
 
-2. create product with name and find by productId
+2. create product with name and find by productId  
+e: 30 min
+r: 20 min
 
 3. return 201 when POST with name
 
