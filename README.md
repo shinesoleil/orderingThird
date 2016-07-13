@@ -7,12 +7,16 @@ estimate :10 min
 real :8 min
 
 2. create product with name and find by productId  
-e: 30 min
+e: 30 min  
 r: 20 min
 
-3. return 201 when POST with name
+3. return 201 when POST with name  
+e: 10 min  
+r: 15 min
 
-4. create product with parameters and find by productId
+4. create product with parameters and find by productId  
+e: 15 min  
+r: 
 
 5. return 201 when POST with parameters
 
