@@ -25,7 +25,9 @@ r: 4 min
 
 6. return 400 when POST fails ?????
 
-7. return 200 when GET
+7. return 200 when GET  
+r: 5 min  
+e: 3 min
 
 8. find products 
 
