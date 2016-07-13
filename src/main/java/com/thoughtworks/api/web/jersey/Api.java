@@ -3,6 +3,7 @@ package com.thoughtworks.api.web.jersey;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.thoughtworks.api.domain.core.ProductRepository;
 import com.thoughtworks.api.domain.user.EncryptionService;
 import com.thoughtworks.api.domain.user.UserRepository;
 import com.thoughtworks.api.infrastructure.records.Models;
@@ -59,6 +60,7 @@ public class Api extends ResourceConfig {
             @Override
             protected void configure() {
                 bind(com.thoughtworks.api.infrastructure.repositories.MyBatisUserRepository.class).to(UserRepository.class);
+                bind(com.thoughtworks.api.infrastructure.repositories.ProductRepository.class).to(ProductRepository.class);
                 bind(DefaultEncryptionService.class).to(EncryptionService.class);
             }
         });

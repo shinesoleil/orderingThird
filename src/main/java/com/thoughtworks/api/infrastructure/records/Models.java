@@ -2,6 +2,7 @@ package com.thoughtworks.api.infrastructure.records;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
+import com.thoughtworks.api.domain.core.ProductRepository;
 import com.thoughtworks.api.domain.user.UserRepository;
 import com.thoughtworks.api.infrastructure.repositories.MyBatisUserRepository;
 import org.apache.ibatis.plugin.Interceptor;
@@ -52,6 +53,7 @@ public class Models extends AbstractModule {
     protected void configure() {
         bindPersistence();
         bind(UserRepository.class).to(MyBatisUserRepository.class);
+        bind(ProductRepository.class).to(com.thoughtworks.api.infrastructure.repositories.ProductRepository.class);
     }
 
     private void bindPersistence() {
