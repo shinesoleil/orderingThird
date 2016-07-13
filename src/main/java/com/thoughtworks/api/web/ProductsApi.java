@@ -21,7 +21,11 @@ public class ProductsApi {
   @Consumes(MediaType.APPLICATION_JSON)
   public Response createProduct(Map<String, Object> info) {
     String id = productRepository.generateId();
-    Product product = new Product(id, info.get("name").toString());
+    Product product = new Product(id,
+      (String) info.get("name"),
+      (String) info.get("description"),
+      (float) info.get("price"),
+      (int) info.get("rating"));
 
     productRepository.create(product);
 

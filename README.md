@@ -16,7 +16,7 @@ r: 15 min
 
 4. create product with parameters and find by productId  
 e: 15 min  
-r: 
+r: 12 min
 
 5. return 201 when POST with parameters
 

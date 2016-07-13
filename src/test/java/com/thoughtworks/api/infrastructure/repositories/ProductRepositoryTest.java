@@ -18,11 +18,9 @@ public class ProductRepositoryTest {
   @Test
   public void should_create_product_with_name_and_find_by_productId() {
     String id = productRepository.generateId();
-
-    Product product = new Product(id, "desk");
+    Product product = new Product(id, "desk", "black", 530, 4);
 
     productRepository.create(product);
-
     Product createdProduct = productRepository.findById(id);
 
     assertThat(createdProduct.getName(), is("desk"));
