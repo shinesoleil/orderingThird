@@ -4,6 +4,7 @@ import com.thoughtworks.api.infrastructure.mybatis.mappers.ProductMapper;
 import com.thoughtworks.api.infrastructure.records.Product;
 
 import javax.inject.Inject;
+import java.util.List;
 import java.util.UUID;
 
 public class ProductRepository implements com.thoughtworks.api.domain.core.ProductRepository {
@@ -23,5 +24,10 @@ public class ProductRepository implements com.thoughtworks.api.domain.core.Produ
   @Override
   public Product findById(String id) {
     return productMapper.findById(id);
+  }
+
+  @Override
+  public List<Product> find() {
+    return productMapper.find();
   }
 }

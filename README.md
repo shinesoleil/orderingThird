@@ -30,6 +30,8 @@ r: 5 min
 e: 3 min
 
 8. find products 
+e: 15 min  
+r: 17 min
 
 9. return a list of products when GET
 
