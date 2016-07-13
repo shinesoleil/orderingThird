@@ -24,7 +24,7 @@ public class ProductsApi {
     Product product = new Product(id,
       (String) info.get("name"),
       (String) info.get("description"),
-      (float) info.get("price"),
+      Float.valueOf(info.get("price").toString()),
       (int) info.get("rating"));
 
     productRepository.create(product);

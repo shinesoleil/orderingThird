@@ -18,7 +18,10 @@ r: 15 min
 e: 15 min  
 r: 12 min
 
-5. return 201 when POST with parameters
+5. return 201 when POST with parameters  
+e: 5 min  
+r: 4 min
+
 
 6. return 400 when POST fails ?????
 

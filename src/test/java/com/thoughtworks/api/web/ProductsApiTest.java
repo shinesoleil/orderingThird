@@ -19,6 +19,9 @@ public class ProductsApiTest extends ApiSupport {
   public void return_201_when_post_product() {
     Map<String, Object> info = new HashMap<>();
     info.put("name", "desk");
+    info.put("description", "black");
+    info.put("price", 530);
+    info.put("rating", 4);
 
     Response post = post("products", info);
     assertThat(post.getStatus(), is(201));
