@@ -122,7 +122,7 @@ reason: something wrong with cde.
 
 3. return 201 when POST order with name  
 e: 8 min  
-r: 
+r: 8 min
 
 4. create order with parameters and find by userId and orderId
 
