@@ -34,6 +34,7 @@ public class UsersApi {
 
   @GET
   @Path("{id}")
+  @Produces(MediaType.APPLICATION_JSON)
   public User findUserById(@PathParam("id") String id) {
     User user = userRepository.findById(id);
 

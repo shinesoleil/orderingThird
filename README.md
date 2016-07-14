@@ -106,7 +106,8 @@ r:  4 min
 
 3. return user when GET by userId  
 e: 8 min  
-r:
+r: 3 min  
+reason: userRepository has been created before, only need to invoke them
 
 * ###/users/{userId}/orders
 

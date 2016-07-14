@@ -1,6 +1,7 @@
 package com.thoughtworks.api.web;
 
 import com.thoughtworks.api.domain.core.UserRepository;
+import com.thoughtworks.api.infrastructure.records.User;
 import com.thoughtworks.api.support.ApiSupport;
 import com.thoughtworks.api.support.ApiTestRunner;
 import org.junit.Test;
@@ -48,11 +49,15 @@ public class UsersApiTest extends ApiSupport {
   }
 
   @Test
-  public void should_return_200_when_get_user_by_id() {
+  public void should_return_user_when_get_user_by_id() {
+    String id = userRepository.generateId();
+    User user = new User(id, "firstUser");
 
-    Response get = get("users/1");
+    userRepository.create(user);
+    Response get = get("users/" + id);
 
     assertThat(get.getStatus(), is(200));
+    assertThat(get.readEntity(User.class).getName(), is("firstUser"));
   }
 
   @Test
