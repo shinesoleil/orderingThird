@@ -1,10 +1,12 @@
 package com.thoughtworks.api.web;
 
+import com.thoughtworks.api.domain.core.UserRepository;
 import com.thoughtworks.api.support.ApiSupport;
 import com.thoughtworks.api.support.ApiTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +17,9 @@ import static org.hamcrest.core.Is.is;
 
 @RunWith(ApiTestRunner.class)
 public class UsersApiTest extends ApiSupport {
+  @Inject
+  UserRepository userRepository;
+
 
   @Test
   public void should_return_201_when_post_user() {
@@ -44,8 +49,16 @@ public class UsersApiTest extends ApiSupport {
 
   @Test
   public void should_return_200_when_get_user_by_id() {
+
     Response get = get("users/1");
 
     assertThat(get.getStatus(), is(200));
+  }
+
+  @Test
+  public void should_return_404_when_get_user_by_id_fails() {
+    Response get = get("users/2");
+
+    assertThat(get.getStatus(), is(404));
   }
 }

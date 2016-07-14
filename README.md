@@ -102,7 +102,7 @@ r: 3 min
 
 2. return 404 when GET by userId fails  
 e: 3 min  
-r: 
+r:  4 min
 
 3. return user when GET by userId  
 e: 8 min  

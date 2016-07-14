@@ -34,7 +34,13 @@ public class UsersApi {
 
   @GET
   @Path("{id}")
-  public Response findUserById() {
-    return Response.status(200).build();
+  public User findUserById(@PathParam("id") String id) {
+    User user = userRepository.findById(id);
+
+    if (user != null) {
+      return user;
+    } else {
+      throw new WebApplicationException(Response.Status.NOT_FOUND);
+    }
   }
 }
