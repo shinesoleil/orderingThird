@@ -124,42 +124,78 @@ reason: something wrong with cde.
 e: 8 min  
 r: 8 min
 
-4. create order with parameters and find by userId and orderId
+4. create order with parameters and find by userId and orderId  
+e: 25 min  
+r: 
 
-5. return 201 when POST order with parameters
+5. return 201 when POST order with parameters  
+e: 15 min  
+r:  
 
-6. return 500 when POST order fails
+6. return 500 when POST order fails  
+e: 5 min  
+r:
 
-7. return 200 when GET orders
+7. return 200 when GET orders  
+e: 5 min  
+r:  
 
-8. find orders 
+8. find orders  
+e: 15 min  
+r: 
 
-9. return a list of order when GET orders
+9. return a list of order when GET orders  
+e: 10 min  
+r:  
 
 * ###/users/{userId}/orders/{orderId}
 
-1. return 200 when GET by userId and orderId
+1. return 200 when GET by userId and orderId  
+e: 5 min  
+r:  
 
-2. return 404 when GET by userId and orderId fails
+2. return 404 when GET by userId and orderId fails  
+e: 5 min  
+r: 
 
-3. return order when GET by userId and orderId
+3. return order when GET by userId and orderId  
+e: 15 min
 
 * ###/users/{userId}/orders/{orderId}/payment
 
-1. return 201 when POST
+1. return 201 when POST  
+e: 10 min  
+r:
 
-2. create payment with amount and find by userId and orderId
+2. create payment with amount and find by userId and orderId  
+e: 20 min  
+r:
 
-3. return 201 when POST with amount
+3. return 201 when POST with amount  
+e: 8 min  
 
-4. create payment with parameters and find by userId and orderId
 
-5. return 201 when POST with parameters
+4. create payment with parameters and find by userId and orderId  
+e: 15 min  
+r:  
 
-6. return 500 when POST fails 
 
-7. return 200 when GET by userId and orderId
+5. return 201 when POST with parameters  
+e: 10 min  
+r:
 
-8. return 404 when GET by userId and orderId fails
+6. return 500 when POST fails  
+e: 5 min  
+r: 
 
-9. return payment when GET by userId and orderId
+7. return 200 when GET by userId and orderId  
+e: 5 min  
+r:  
+
+8. return 404 when GET by userId and orderId fails  
+e: 5 min  
+r:  
+
+9. return payment when GET by userId and orderId  
+e: 10 min  
+r:
