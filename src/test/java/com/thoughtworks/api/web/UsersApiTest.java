@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 
 import javax.ws.rs.core.Response;
 import java.util.HashMap;
+import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -16,7 +17,10 @@ public class UsersApiTest extends ApiSupport {
 
   @Test
   public void should_return_201_when_post_user() {
-    Response post = post("users", new HashMap<String, Object>());
+    Map<String, Object> info = new HashMap<>();
+    info.put("name", "firstUser");
+
+    Response post = post("users", info);
 
     assertThat(post.getStatus(), is(201));
   }

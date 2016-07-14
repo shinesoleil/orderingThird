@@ -66,7 +66,7 @@ reason: changed default User file name, but IDE auto-changed all "user" to "user
 
 3. return 201 when POST user with name  
 e: 10 min  
-r:
+r: 9 min
 
 4. create user with parameters and find by userId  
 e: 12 min  
