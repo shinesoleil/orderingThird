@@ -24,4 +24,13 @@ public class UsersApiTest extends ApiSupport {
 
     assertThat(post.getStatus(), is(201));
   }
+
+  @Test
+  public void return_500_when_post_with_invalid_parameters() {
+    Map<String, Object> info = new HashMap<>();
+    info.put("name", 123);
+
+    Response post = post("users", info);
+    assertThat(post.getStatus(), is(500));
+  }
 }

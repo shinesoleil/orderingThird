@@ -70,15 +70,17 @@ r: 9 min
 
 4. create user with parameters and find by userId  
 e: 12 min  
-r: 
+r: 0 min  
+reason: user has only one "name "attribute. 
 
 5. return 201 when POST user with parameters  
 e: 5 min  
-r: 
+r: 0 min  
+reason: the same as above
 
 6. return 500 when POST user fails  
 e: 3 min  
-r: 
+r: 2 min
 
 7. return 200 when GET users  
 e: 5 min  
