@@ -44,7 +44,9 @@ r: 5 min
 e: 5 min  
 r: 6 min
 
-2. return 404 when GET by productId fails
+2. return 404 when GET by productId fails  
+e: 5 min  
+r: 5 min
 
 3. return product when GET by productId
 

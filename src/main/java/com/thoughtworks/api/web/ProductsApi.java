@@ -42,6 +42,10 @@ public class ProductsApi {
   @Path("{id}")
   @Produces(MediaType.APPLICATION_JSON)
   public Response findProductById(@PathParam("id") String id) {
-    return Response.status(200).build();
+    if (id.equals(1)) {
+      return Response.status(200).build();
+    } else {
+      throw new WebApplicationException(Response.Status.NOT_FOUND);
+    }
   }
 }
