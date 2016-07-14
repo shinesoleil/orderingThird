@@ -111,23 +111,29 @@ reason: userRepository has been created before, only need to invoke them
 
 * ###/users/{userId}/orders
 
-1. return 201 when POST
+1. return 201 when POST order  
+e: 3 min  
+r: 4 min
 
-2. create order with name and find by userId and orderId
+2. create order with name and find by userId and orderId  
+e: 15 min  
+r:
 
-3. return 201 when POST with name
+3. return 201 when POST order with name  
+e: 8 min  
+r: 
 
 4. create order with parameters and find by userId and orderId
 
-5. return 201 when POST with parameters
+5. return 201 when POST order with parameters
 
-6. return 500 when POST fails
+6. return 500 when POST order fails
 
-7. return 200 when GET
+7. return 200 when GET orders
 
 8. find orders 
 
-9. return a list of orders when GET
+9. return a list of order when GET orders
 
 * ###/users/{userId}/orders/{orderId}
 

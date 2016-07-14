@@ -44,4 +44,10 @@ public class UsersApi {
       throw new WebApplicationException(Response.Status.NOT_FOUND);
     }
   }
+
+  @POST
+  @Path("{id}/orders")
+  public Response createOrder() {
+    return Response.status(201).build();
+  }
 }
