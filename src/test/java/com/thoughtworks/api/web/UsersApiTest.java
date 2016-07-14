@@ -33,4 +33,11 @@ public class UsersApiTest extends ApiSupport {
     Response post = post("users", info);
     assertThat(post.getStatus(), is(500));
   }
+
+  @Test
+  public void should_return_200_when_get_users() {
+    Response get = get("users");
+
+    assertThat(get.getStatus(), is(200));
+  }
 }

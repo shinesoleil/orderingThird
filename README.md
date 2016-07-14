@@ -78,7 +78,7 @@ e: 5 min
 r: 0 min  
 reason: the same as above
 
-6. return 500 when POST user fails  
+6. return 500 when POST user parameters are not valid  
 e: 3 min  
 r: 2 min
 

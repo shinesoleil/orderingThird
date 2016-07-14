@@ -5,6 +5,7 @@ import com.thoughtworks.api.infrastructure.records.User;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
@@ -25,5 +26,10 @@ public class UsersApi {
     userRepository.create(user);
 
     return Response.status(201).build();
+  }
+
+  @GET
+  public Response findUsers() {
+    return Response.status(200).build();
   }
 }
