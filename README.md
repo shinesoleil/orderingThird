@@ -84,15 +84,15 @@ r: 2 min
 
 7. return 200 when GET users  
 e: 5 min  
-r: 
+r: 4 min
 
 8. find users  
 e: 15 min  
-r: 
+r: 11 min
 
-9. return a list of users when GET  
+9. return a list of users when GET users 
 e: 5 min  
-r: 
+r: 8 min
 
 * ###/users/{userId}
 

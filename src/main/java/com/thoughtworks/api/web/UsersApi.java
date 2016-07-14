@@ -4,12 +4,10 @@ import com.thoughtworks.api.domain.core.UserRepository;
 import com.thoughtworks.api.infrastructure.records.User;
 
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 import java.util.Map;
 
 @Path("users")
@@ -21,7 +19,7 @@ public class UsersApi {
   @Consumes(MediaType.APPLICATION_JSON)
   public Response createUser(Map<String, Object> info) {
     String id = userRepository.generateId();
-    User user = new User(id, (String)info.get("name"));
+    User user = new User(id, (String) info.get("name"));
 
     userRepository.create(user);
 
@@ -29,7 +27,8 @@ public class UsersApi {
   }
 
   @GET
-  public Response findUsers() {
-    return Response.status(200).build();
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<User> findUsers() {
+    return userRepository.find();
   }
 }

@@ -4,6 +4,7 @@ import com.thoughtworks.api.infrastructure.records.User;
 import com.thoughtworks.api.infrastructure.mybatis.mappers.UserMapper;
 
 import javax.inject.Inject;
+import java.util.List;
 import java.util.UUID;
 
 public class UserRepository implements com.thoughtworks.api.domain.core.UserRepository {
@@ -23,5 +24,10 @@ public class UserRepository implements com.thoughtworks.api.domain.core.UserRepo
   @Override
   public User findById(String id) {
     return userMapper.findById(id);
+  }
+
+  @Override
+  public List<User> find() {
+    return userMapper.find();
   }
 }

@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 
 import javax.ws.rs.core.Response;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -35,9 +36,9 @@ public class UsersApiTest extends ApiSupport {
   }
 
   @Test
-  public void should_return_200_when_get_users() {
+  public void should_return_list_of_user_when_get_users() {
     Response get = get("users");
 
-    assertThat(get.getStatus(), is(200));
+    assertThat(get.readEntity(List.class).size(), is(0));
   }
 }
