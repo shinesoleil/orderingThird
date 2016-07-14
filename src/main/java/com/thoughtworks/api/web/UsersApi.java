@@ -3,15 +3,14 @@ package com.thoughtworks.api.web;
 import com.thoughtworks.api.domain.core.OrderRepository;
 import com.thoughtworks.api.domain.core.UserRepository;
 import com.thoughtworks.api.infrastructure.records.Order;
+import com.thoughtworks.api.infrastructure.records.OrderItem;
 import com.thoughtworks.api.infrastructure.records.User;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Path("users")
 public class UsersApi {
@@ -56,9 +55,23 @@ public class UsersApi {
   @Consumes(MediaType.APPLICATION_JSON)
   public Response createOrder(HashMap<String, Object> info) {
     String id = orderRepository.generateId();
-    Order order = new Order(id, (String) info.get("name"));
+    List<HashMap<String, Object>> orderInfos = (List<HashMap<String, Object>>) info.get("orderItems");
+    List<OrderItem> orderItems = new ArrayList<>();
 
-    orderRepository.create(order);
+    for (HashMap<String, Object> orderInfo: orderInfos) {
+      OrderItem orderItem = new OrderItem((String) orderInfo.get("id"),
+        (int) orderInfo.get("quantity"),
+        (String) orderInfo.get("productId"));
+      orderItems.add(orderItem);
+    }
+
+    Order order = new Order(id, (String) info.get("name"),
+      (String) info.get("address"),
+      (String) info.get("phone"),
+      (Date) info.get("date"),
+      orderItems);
+
+    orderRepository.create(order, "asdf");
 
     return Response.status(201).build();
 

@@ -3,7 +3,7 @@ CREATE TABLE products (
   name VARCHAR(255) NOT NULL,
   description VARCHAR(255) NOT NULL,
   price FLOAT NOT NULL,
-  rating int
+  rating INT
 );
 
 CREATE TABLE users (
@@ -13,7 +13,27 @@ CREATE TABLE users (
 
 CREATE TABLE orders (
   id VARCHAR(255) PRIMARY KEY,
-  name VARCHAR(255) NOT NULL
+  name VARCHAR(255) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  phone VARCHAR(255) NOT NULL,
+  date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  user_id VARCHAR(255) NOT NULL,
+
+  FOREIGN KEY (user_id)
+    REFERENCES users(id)
+);
+
+CREATE TABLE orderItems (
+  id VARCHAR(255) PRIMARY KEY,
+  quantity INT NOT NULL ,
+  order_id VARCHAR(255) NOT NULL,
+  product_id VARCHAR(255) NOT NULL,
+
+  FOREIGN KEY (order_id)
+    REFERENCES orders(id),
+
+  FOREIGN KEY (product_id)
+    REFERENCES products(id)
 )
 
 

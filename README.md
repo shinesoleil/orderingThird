@@ -126,7 +126,8 @@ r: 8 min
 
 4. create order with parameters and find by userId and orderId  
 e: 25 min  
-r: 
+r: more than 3 hours.   
+reason: to be described
 
 5. return 201 when POST order with parameters  
 e: 15 min  

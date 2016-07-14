@@ -5,7 +5,9 @@ import com.thoughtworks.api.infrastructure.records.Order;
 public interface OrderRepository {
   String generateId();
 
-  void create(Order order);
+  String generateOrderItemId();
+
+  void create(Order order, String orderId);
 
   Order findById(String id);
 }

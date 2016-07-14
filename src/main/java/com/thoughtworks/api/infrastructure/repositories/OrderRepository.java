@@ -17,8 +17,13 @@ public class OrderRepository implements com.thoughtworks.api.domain.core.OrderRe
   }
 
   @Override
-  public void create(Order order) {
-    orderMapper.save(order);
+  public String generateOrderItemId() {
+    return UUID.randomUUID().toString().replaceAll("-", "");
+  }
+
+  @Override
+  public void create(Order order, String userId) {
+    orderMapper.save(order, userId);
   }
 
   @Override
