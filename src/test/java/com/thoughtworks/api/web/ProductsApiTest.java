@@ -37,7 +37,7 @@ public class ProductsApiTest extends ApiSupport {
 
 
     Response post = post("products", info);
-    assertThat(post.getStatus(), is(201));
+    assertThat(post.getStatus(), is(500));
   }
 
   @Test

@@ -22,8 +22,9 @@ r: 12 min
 e: 5 min  
 r: 4 min
 
-6. return 400 when POST parameters are not valid
-
+6. return 500 when POST parameters are not valid
+e: 5 min  
+r: 3 min
 
 7. return 200 when GET  
 r: 5 min  
@@ -35,7 +36,7 @@ r: 17 min
 
 9. return a list of products when GET  
 e: 5 min  
-r: 
+r: 5 min
 
 * ###/products/{productId}
 
@@ -57,7 +58,7 @@ r:
 
 5. return 201 when POST with parameters
 
-6. return 400 when POST fails ?????
+6. return 500 when POST fails
 
 7. return 200 when GET
 
@@ -85,7 +86,7 @@ r:
 
 5. return 201 when POST with parameters
 
-6. return 400 when POST fails ?????
+6. return 500 when POST fails
 
 7. return 200 when GET
 
@@ -113,7 +114,7 @@ r:
 
 5. return 201 when POST with parameters
 
-6. return 400 when POST fails ?????
+6. return 500 when POST fails 
 
 7. return 200 when GET by userId and orderId
 
