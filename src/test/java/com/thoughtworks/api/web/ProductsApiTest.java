@@ -46,4 +46,11 @@ public class ProductsApiTest extends ApiSupport {
 
     assertThat(get.getStatus(), is(200));
   }
+
+  @Test
+  public void should_return_200_when_find_by_id() {
+    Response get = get("products/1");
+
+    assertThat(get.getStatus(), is(200));
+  }
 }

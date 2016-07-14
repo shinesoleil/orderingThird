@@ -37,4 +37,11 @@ public class ProductsApi {
   public Response findProducts() {
     return Response.status(200).build();
   }
+
+  @GET
+  @Path("{id}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response findProductById(@PathParam("id") String id) {
+    return Response.status(200).build();
+  }
 }

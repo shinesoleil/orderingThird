@@ -40,7 +40,9 @@ r: 5 min
 
 * ###/products/{productId}
 
-1. return 200 when GET by productId
+1. return 200 when GET by productId  
+e: 5 min  
+r: 6 min
 
 2. return 404 when GET by productId fails
 
