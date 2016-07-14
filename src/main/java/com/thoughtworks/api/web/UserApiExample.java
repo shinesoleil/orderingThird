@@ -6,10 +6,10 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-public class UserApi {
+public class UserApiExample {
     private User user;
 
-    public UserApi(User user) {
+    public UserApiExample(User user) {
         this.user = user;
     }
 

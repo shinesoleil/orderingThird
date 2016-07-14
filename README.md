@@ -54,23 +54,41 @@ r: 8 min
 
 * ###/users
 
-1. return 201 when POST
+1. return 201 when POST user  
+e: 10 min  
+r: 7 min
 
-2. create user with name and find by userId
+2. create user with name and find by userId  
+e: 20 min  
+r:
 
-3. return 201 when POST with name
+3. return 201 when POST user with name  
+e: 10 min  
+r:
 
-4. create user with parameters and find by userId
+4. create user with parameters and find by userId  
+e: 12 min  
+r: 
 
-5. return 201 when POST with parameters
+5. return 201 when POST user with parameters  
+e: 5 min  
+r: 
 
-6. return 500 when POST fails
+6. return 500 when POST user fails  
+e: 3 min  
+r: 
 
-7. return 200 when GET
+7. return 200 when GET users  
+e: 5 min  
+r: 
 
-8. find users 
+8. find users  
+e: 15 min  
+r: 
 
-9. return a list of users when GET
+9. return a list of users when GET  
+e: 5 min  
+r: 
 
 * ###/users/{userId}
 
