@@ -1,7 +1,7 @@
 package com.thoughtworks.api.web;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.thoughtworks.api.domain.user.UserRole;
+import com.thoughtworks.api.domain.userExample.UserRole;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

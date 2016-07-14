@@ -1,9 +1,9 @@
 package com.thoughtworks.api.support;
 
-import com.thoughtworks.api.domain.user.User;
-import com.thoughtworks.api.domain.user.UserId;
-import com.thoughtworks.api.domain.user.UserRepository;
-import com.thoughtworks.api.domain.user.UserRole;
+import com.thoughtworks.api.domain.userExample.UserExample;
+import com.thoughtworks.api.domain.userExample.UserId;
+import com.thoughtworks.api.domain.userExample.UserRepositoryExample;
+import com.thoughtworks.api.domain.userExample.UserRole;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,19 +32,19 @@ public class TestHelper {
         }};
     }
 
-    public static User userForTest(String id, String name, UserRole role) {
+    public static UserExample userForTest(String id, String name, UserRole role) {
         String password_123 = "$2a$04$DbgJbGA4dkQSzAvXvJcGBOv5kHuMBzrWfne3x3Cx4JQv4IJcxtBIW";
-        return new User(new UserId(id), name, name + "@tw.com", role, password_123);
+        return new UserExample(new UserId(id), name, name + "@tw.com", role, password_123);
     }
 
-    public static User userFixture(UserRepository userRepository, UserRole role) {
+    public static UserExample userFixture(UserRepositoryExample userRepository, UserRole role) {
         final String id = new Integer(auto_increment_key++).toString();
-        User user = userForTest(id, "name-" + id, role);
+        UserExample user = userForTest(id, "name-" + id, role);
         userRepository.save(user);
         return user;
     }
 
-    public static Map<String, Object> userJsonForTest(User user) {
+    public static Map<String, Object> userJsonForTest(UserExample user) {
         return new HashMap<String, Object>() {{
             put("id", user.getUserId().id());
             put("role", user.getRole());

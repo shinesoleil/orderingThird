@@ -7,7 +7,7 @@ import com.google.inject.Provider;
 import com.google.inject.name.Names;
 import com.google.inject.spi.Message;
 import com.google.inject.util.Modules;
-import com.thoughtworks.api.domain.user.EncryptionService;
+import com.thoughtworks.api.domain.userExample.EncryptionService;
 import com.thoughtworks.api.infrastructure.records.Models;
 import com.thoughtworks.api.infrastructure.util.DefaultEncryptionService;
 import org.glassfish.hk2.api.ServiceLocator;

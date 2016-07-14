@@ -1,6 +1,6 @@
 package com.thoughtworks.api.infrastructure.util;
 
-import com.thoughtworks.api.domain.user.EncryptionService;
+import com.thoughtworks.api.domain.userExample.EncryptionService;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class DefaultEncryptionService implements EncryptionService {

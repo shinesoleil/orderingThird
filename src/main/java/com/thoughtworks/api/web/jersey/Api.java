@@ -4,8 +4,8 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.thoughtworks.api.domain.core.ProductRepository;
-import com.thoughtworks.api.domain.user.EncryptionService;
-import com.thoughtworks.api.domain.user.UserRepository;
+import com.thoughtworks.api.domain.core.UserRepository;
+import com.thoughtworks.api.domain.userExample.EncryptionService;
 import com.thoughtworks.api.infrastructure.records.Models;
 import com.thoughtworks.api.infrastructure.util.DefaultEncryptionService;
 import org.glassfish.hk2.api.ServiceLocator;
@@ -29,7 +29,7 @@ public class Api extends ResourceConfig {
         String username = System.getenv().getOrDefault("DB_USERNAME", "mysql");
         String password = System.getenv().getOrDefault("DB_PASSWORD", "mysql");
         String connectURL = String.format(
-                "jdbc:mysql://%s:%s/%s?user=%s&password=%s&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull",
+                "jdbc:mysql://%s:%s/%s?userExample=%s&password=%s&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull",
                 host,
                 port,
                 dbname,
@@ -59,8 +59,8 @@ public class Api extends ResourceConfig {
         register(new AbstractBinder() {
             @Override
             protected void configure() {
-                bind(com.thoughtworks.api.infrastructure.repositories.MyBatisUserRepository.class).to(UserRepository.class);
                 bind(com.thoughtworks.api.infrastructure.repositories.ProductRepository.class).to(ProductRepository.class);
+                bind(com.thoughtworks.api.infrastructure.repositories.UserRepository.class).to(UserRepository.class);
                 bind(DefaultEncryptionService.class).to(EncryptionService.class);
             }
         });

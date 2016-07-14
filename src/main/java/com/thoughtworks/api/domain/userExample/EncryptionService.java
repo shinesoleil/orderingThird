@@ -1,4 +1,4 @@
-package com.thoughtworks.api.domain.user;
+package com.thoughtworks.api.domain.userExample;
 
 public interface EncryptionService {
     String encrypt(String password);

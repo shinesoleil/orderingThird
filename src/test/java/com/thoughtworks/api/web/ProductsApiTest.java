@@ -29,7 +29,7 @@ public class ProductsApiTest extends ApiSupport {
     info.put("rating", 4);
 
     Response post = post("products", info);
-    assertThat(post.getStatus(), is(500));
+    assertThat(post.getStatus(), is(201));
   }
 
   @Test

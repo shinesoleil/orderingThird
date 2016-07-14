@@ -60,7 +60,9 @@ r: 7 min
 
 2. create user with name and find by userId  
 e: 20 min  
-r:
+r: 40 min  
+reason: changed default User file name, but IDE auto-changed all "user" to "userExample" 
+        (should have been avoided)  
 
 3. return 201 when POST user with name  
 e: 10 min  

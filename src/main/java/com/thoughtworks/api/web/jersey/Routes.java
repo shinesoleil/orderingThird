@@ -1,6 +1,6 @@
 package com.thoughtworks.api.web.jersey;
 
-import com.thoughtworks.api.domain.user.User;
+import com.thoughtworks.api.domain.userExample.UserExample;
 
 import javax.ws.rs.core.UriInfo;
 import java.net.URI;
@@ -13,7 +13,7 @@ public class Routes {
         baseUri = uriInfo.getBaseUri().toASCIIString();
     }
 
-    public URI userUrl(User user) {
+    public URI userUrl(UserExample user) {
         return URI.create(String.format("%susers/%s", baseUri, user.getUserId().id()));
     }
 }

@@ -1,4 +1,4 @@
-package com.thoughtworks.api.domain.user;
+package com.thoughtworks.api.domain.userExample;
 
 import com.thoughtworks.api.domain.AssertionConcern;
 import com.thoughtworks.api.infrastructure.records.Record;
@@ -9,14 +9,14 @@ import java.util.Map;
 
 import static java.util.Arrays.asList;
 
-public class User extends AssertionConcern implements Record {
+public class UserExample extends AssertionConcern implements Record {
     private UserId userId;
     private String name;
     private String email;
     private UserRole role;
     private String password;
 
-    public User(UserId id, String name, String email, UserRole role, String password) {
+    public UserExample(UserId id, String name, String email, UserRole role, String password) {
         setUserId(id);
         setName(name);
         setEmail(email);
@@ -24,7 +24,7 @@ public class User extends AssertionConcern implements Record {
         setPassword(password);
     }
 
-    private User() {
+    private UserExample() {
 
     }
 
@@ -64,9 +64,9 @@ public class User extends AssertionConcern implements Record {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof User)) return false;
+        if (!(o instanceof UserExample)) return false;
 
-        User user = (User) o;
+        UserExample user = (UserExample) o;
 
         return getUserId().equals(user.getUserId());
 
@@ -87,7 +87,7 @@ public class User extends AssertionConcern implements Record {
             put("links", asList(
                     new HashMap<String, Object>() {{
                         put("rel", "self");
-                        put("uri", routes.userUrl(User.this));
+                        put("uri", routes.userUrl(UserExample.this));
                     }}
             ));
         }};
@@ -99,7 +99,7 @@ public class User extends AssertionConcern implements Record {
     }
 
     private void setRole(UserRole role) {
-        assertArgumentNotNull(role, "user must have a role");
+        assertArgumentNotNull(role, "userExample must have a role");
         this.role = role;
     }
 
