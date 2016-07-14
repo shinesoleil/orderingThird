@@ -24,11 +24,24 @@ public class ProductsApiTest extends ApiSupport {
     info.put("rating", 4);
 
     Response post = post("products", info);
+    assertThat(post.getStatus(), is(500));
+  }
+
+  @Test
+  public void return_400_when_post_with_invalid_parameters() {
+    Map<String, Object> info = new HashMap<>();
+    info.put("name", "chair");
+    info.put("description", 123);
+    info.put("price", 210);
+    info.put("rating", 5);
+
+
+    Response post = post("products", info);
     assertThat(post.getStatus(), is(201));
   }
 
   @Test
-  public void return_200_when_get_products() {
+  public void return_product_list_when_get_products() {
     Response get = get("products");
 
     assertThat(get.getStatus(), is(200));

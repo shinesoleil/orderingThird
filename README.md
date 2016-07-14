@@ -22,8 +22,8 @@ r: 12 min
 e: 5 min  
 r: 4 min
 
+6. return 400 when POST parameters are not valid
 
-6. return 400 when POST fails ?????
 
 7. return 200 when GET  
 r: 5 min  
@@ -33,7 +33,9 @@ e: 3 min
 e: 15 min  
 r: 17 min
 
-9. return a list of products when GET
+9. return a list of products when GET  
+e: 5 min  
+r: 
 
 * ###/products/{productId}
 
