@@ -21,4 +21,9 @@
         <result property="price" column="price"/>
         <result property="rating" column="rating"/>
     </resultMap>
+
+    <resultMap id="order" type="com.thoughtworks.api.infrastructure.records.Order">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
 </mapper>

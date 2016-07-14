@@ -115,9 +115,10 @@ reason: userRepository has been created before, only need to invoke them
 e: 3 min  
 r: 4 min
 
-2. create order with name and find by userId and orderId  
+2. create order with name and find by orderId  
 e: 15 min  
-r:
+r: 24 min  
+reason: something wrong with cde. 
 
 3. return 201 when POST order with name  
 e: 8 min  
