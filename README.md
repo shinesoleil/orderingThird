@@ -96,11 +96,17 @@ r: 8 min
 
 * ###/users/{userId}
 
-1. return 200 when GET by userId
+1. return 200 when GET by userId  
+e: 4 min  
+r: 3 min
 
-2. return 404 when GET by userId fails
+2. return 404 when GET by userId fails  
+e: 3 min  
+r: 
 
-3. return user when GET by userId
+3. return user when GET by userId  
+e: 8 min  
+r:
 
 * ###/users/{userId}/orders
 

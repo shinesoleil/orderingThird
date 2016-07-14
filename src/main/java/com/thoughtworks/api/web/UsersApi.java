@@ -31,4 +31,10 @@ public class UsersApi {
   public List<User> findUsers() {
     return userRepository.find();
   }
+
+  @GET
+  @Path("{id}")
+  public Response findUserById() {
+    return Response.status(200).build();
+  }
 }

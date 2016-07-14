@@ -41,4 +41,11 @@ public class UsersApiTest extends ApiSupport {
 
     assertThat(get.readEntity(List.class).size(), is(0));
   }
+
+  @Test
+  public void should_return_200_when_get_user_by_id() {
+    Response get = get("users/1");
+
+    assertThat(get.getStatus(), is(200));
+  }
 }
