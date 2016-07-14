@@ -48,7 +48,9 @@ r: 6 min
 e: 5 min  
 r: 5 min
 
-3. return product when GET by productId
+3. return product when GET by productId  
+e: 10 min  
+r: 8 min
 
 * ###/users
 
