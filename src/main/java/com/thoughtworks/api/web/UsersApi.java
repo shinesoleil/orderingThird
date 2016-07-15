@@ -66,18 +66,20 @@ public class UsersApi {
       orderItems.add(orderItem);
     }
 
-    System.out.println(info.get("date"));
-
     Order order = new Order(id, (String) info.get("name"),
       (String) info.get("address"),
       (String) info.get("phone"),
       new Date((long) info.get("date")),
       orderItems);
 
-    System.out.println(order.toString());
-
     orderRepository.create(order, userId);
 
     return Response.status(201).build();
+  }
+
+  @GET
+  @Path("{id}/orders")
+  public Response getOrders() {
+    return Response.status(200).build();
   }
 }

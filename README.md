@@ -139,7 +139,7 @@ r: 3 min
 
 7. return 200 when GET orders  
 e: 5 min  
-r:  
+r: 3 min
 
 8. find orders  
 e: 15 min  

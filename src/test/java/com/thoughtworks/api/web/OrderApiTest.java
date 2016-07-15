@@ -89,4 +89,11 @@ public class OrderApiTest extends ApiSupport{
     Response post = post("users/" + userId + "/orders", info);
     assertThat(post.getStatus(), is(500));
   }
+
+  @Test
+  public void should_return_200_when_get_orders() {
+    Response get = get("users/1/orders");
+
+    assertThat(get.getStatus(), is(200));
+  }
 }
