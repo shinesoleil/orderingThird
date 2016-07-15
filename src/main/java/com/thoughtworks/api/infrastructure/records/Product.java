@@ -20,6 +20,11 @@ public class Product implements com.thoughtworks.api.domain.core.Product {
   }
 
   @Override
+  public String getId() {
+    return this.id;
+  }
+
+  @Override
   public String getName() {
     return this.name;
   }

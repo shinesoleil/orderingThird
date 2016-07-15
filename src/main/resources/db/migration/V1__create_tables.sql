@@ -23,7 +23,7 @@ CREATE TABLE orders (
     REFERENCES users(id)
 );
 
-CREATE TABLE orderItems (
+CREATE TABLE order_items (
   id VARCHAR(255) PRIMARY KEY,
   quantity INT NOT NULL ,
   order_id VARCHAR(255) NOT NULL,

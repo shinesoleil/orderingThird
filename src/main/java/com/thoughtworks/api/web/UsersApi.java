@@ -53,7 +53,8 @@ public class UsersApi {
   @POST
   @Path("{id}/orders")
   @Consumes(MediaType.APPLICATION_JSON)
-  public Response createOrder(HashMap<String, Object> info) {
+  public Response createOrder(HashMap<String, Object> info,
+                              @PathParam("id") String userId) {
     String id = orderRepository.generateId();
     List<HashMap<String, Object>> orderInfos = (List<HashMap<String, Object>>) info.get("orderItems");
     List<OrderItem> orderItems = new ArrayList<>();
@@ -65,15 +66,18 @@ public class UsersApi {
       orderItems.add(orderItem);
     }
 
+    System.out.println(info.get("date"));
+
     Order order = new Order(id, (String) info.get("name"),
       (String) info.get("address"),
       (String) info.get("phone"),
-      (Date) info.get("date"),
+      new Date((long) info.get("date")),
       orderItems);
 
-    orderRepository.create(order, "asdf");
+    System.out.println(order.toString());
+
+    orderRepository.create(order, userId);
 
     return Response.status(201).build();
-
   }
 }

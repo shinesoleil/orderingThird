@@ -4,12 +4,12 @@ import com.thoughtworks.api.domain.core.ProductRepository;
 import com.thoughtworks.api.infrastructure.records.Product;
 import com.thoughtworks.api.support.ApiSupport;
 import com.thoughtworks.api.support.ApiTestRunner;
+import com.thoughtworks.api.support.TestHelper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import javax.inject.Inject;
 import javax.ws.rs.core.Response;
-import java.util.HashMap;
 import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -22,11 +22,7 @@ public class ProductsApiTest extends ApiSupport {
 
   @Test
   public void return_201_when_post_product() {
-    Map<String, Object> info = new HashMap<>();
-    info.put("name", "desk");
-    info.put("description", "black");
-    info.put("price", 530);
-    info.put("rating", 4);
+    Map<String, Object> info = TestHelper.productMap();
 
     Response post = post("products", info);
     assertThat(post.getStatus(), is(201));
@@ -34,12 +30,8 @@ public class ProductsApiTest extends ApiSupport {
 
   @Test
   public void return_400_when_post_with_invalid_parameters() {
-    Map<String, Object> info = new HashMap<>();
-    info.put("name", "chair");
-    info.put("description", 123);
-    info.put("price", 210);
-    info.put("rating", 5);
-
+    Map<String, Object> info = TestHelper.productMap();
+    info.replace("description", 123);
 
     Response post = post("products", info);
     assertThat(post.getStatus(), is(500));
@@ -55,12 +47,12 @@ public class ProductsApiTest extends ApiSupport {
   @Test
   public void should_return_product_when_find_by_id() {
     String id = productRepository.generateId();
-    productRepository.create(new Product(id, "chair", "white", 210, 5));
+    productRepository.create(TestHelper.product(id, 530));
 
     Response get = get("products/" + id);
 
     assertThat(get.getStatus(), is(200));
-    assertThat(get.readEntity(Product.class).getName(), is("chair"));
+    assertThat(get.readEntity(Product.class).getId(), is(id));
   }
 
   @Test

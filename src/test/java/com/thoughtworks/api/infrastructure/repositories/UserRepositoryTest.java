@@ -2,6 +2,7 @@ package com.thoughtworks.api.infrastructure.repositories;
 
 import com.thoughtworks.api.infrastructure.records.User;
 import com.thoughtworks.api.support.DatabaseTestRunner;
+import com.thoughtworks.api.support.TestHelper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -19,20 +20,20 @@ public class UserRepositoryTest {
   @Test
   public void should_create_user_with_name_and_find_by_id() {
     String id = userRepository.generateId();
-    User user = new User(id, "firstUser");
+    User user = TestHelper.user(id);
 
     userRepository.create(user);
     User createdUser = userRepository.findById(id);
 
-    assertThat(createdUser.getName(), is("firstUser"));
+    assertThat(createdUser.getId(), is(id));
   }
 
   @Test
   public void should_find_all_users() {
     String id1 = userRepository.generateId();
-    User user1 = new User(id1, "firstUser");
     String id2 = userRepository.generateId();
-    User user2 = new User(id2, "secondUser");
+    User user1 = TestHelper.user(id1);
+    User user2 = TestHelper.user(id2);
 
     userRepository.create(user1);
     userRepository.create(user2);

@@ -25,6 +25,11 @@ public class Order implements com.thoughtworks.api.domain.core.Order {
   }
 
   @Override
+  public String getId() {
+    return this.id;
+  }
+
+  @Override
   public String getName() {
     return this.name;
   }

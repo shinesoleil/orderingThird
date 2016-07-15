@@ -14,6 +14,11 @@ public class User implements com.thoughtworks.api.domain.core.User {
   }
 
   @Override
+  public String getId() {
+    return this.id;
+  }
+
+  @Override
   public String getName() {
     return this.name;
   }
