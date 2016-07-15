@@ -147,7 +147,7 @@ r: 15 min
 
 9. return a list of order when GET orders  
 e: 10 min  
-r:  
+r: 8 min
 
 * ###/users/{userId}/orders/{orderId}
 

@@ -91,9 +91,9 @@ public class OrderApiTest extends ApiSupport{
   }
 
   @Test
-  public void should_return_200_when_get_orders() {
-    Response get = get("users/1/orders");
+  public void should_return_list_of_order_when_get_orders() {
+    Response get = get("users/" + userId + "/orders");
 
-    assertThat(get.getStatus(), is(200));
+    assertThat(get.readEntity(List.class).size(), is(0));
   }
 }

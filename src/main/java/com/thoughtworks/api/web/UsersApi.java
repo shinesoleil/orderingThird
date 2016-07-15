@@ -79,7 +79,8 @@ public class UsersApi {
 
   @GET
   @Path("{id}/orders")
-  public Response getOrders() {
-    return Response.status(200).build();
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<Order> getOrders() {
+    return orderRepository.find();
   }
 }
