@@ -93,4 +93,10 @@ public class UsersApi {
     }
     return Response.status(200).build();
   }
+
+  @POST
+  @Path("{userId}/orders/{orderId}/payment")
+  public Response createPayment() {
+    return Response.status(201).build();
+  }
 }

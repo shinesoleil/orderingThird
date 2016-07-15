@@ -166,7 +166,7 @@ e: 15 min
 
 1. return 201 when POST  
 e: 10 min  
-r:
+r: 7 min
 
 2. create payment with amount and find by userId and orderId  
 e: 20 min  
