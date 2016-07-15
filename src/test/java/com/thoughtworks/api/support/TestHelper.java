@@ -4,8 +4,14 @@ import com.thoughtworks.api.domain.userExample.UserExample;
 import com.thoughtworks.api.domain.userExample.UserId;
 import com.thoughtworks.api.domain.userExample.UserRepositoryExample;
 import com.thoughtworks.api.domain.userExample.UserRole;
+import com.thoughtworks.api.infrastructure.records.Order;
+import com.thoughtworks.api.infrastructure.records.OrderItem;
+import com.thoughtworks.api.infrastructure.records.Product;
+import com.thoughtworks.api.infrastructure.records.User;
 
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TestHelper {
@@ -49,5 +55,54 @@ public class TestHelper {
             put("id", user.getUserId().id());
             put("role", user.getRole());
         }};
+    }
+
+    public static Map<String, Object> productMap(){
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", "desk");
+        map.put("description", "black");
+        map.put("price", 530);
+        map.put("rating", 4);
+
+        return map;
+    }
+
+    public static Product product(String id, float price) {
+        return new Product(id, "product" + id, "black", price, 5);
+    }
+
+    public static Map<String, Object> userMap() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", "firstUser");
+
+        return map;
+    }
+
+    public static User user(String id) {
+        return new User(id, "user" + id);
+    }
+
+    public static Map<String, Object> orderMap(List<Map<String, Object>> orderItems) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", "firstUser");
+        map.put("address", "beijing");
+        map.put("phone", "13099999999");
+        map.put("date", new Date());
+        map.put("orderItems", orderItems);
+
+        return map;
+    }
+
+    public static Map<String, Object> orderItemMap(int quantity, String orderId, String productId) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("quantity", quantity);
+        map.put("orderId", orderId);
+        map.put("productId", productId);
+
+        return map;
+    }
+
+    public static Order order(String id, List<OrderItem> orderItems) {
+        return new Order(id, "order" + id, "Beijing", "13099999999", new Date(), orderItems);
     }
 }
