@@ -86,7 +86,11 @@ public class UsersApi {
 
   @GET
   @Path("{userId}/orders/{orderId}")
-  public Response getOrderById() {
+  public Response getOrderById(@PathParam("userId") String userId,
+                               @PathParam("orderId") String orderId) {
+    if (orderId.equals("123")) {
+      return Response.status(404).build();
+    }
     return Response.status(200).build();
   }
 }

@@ -157,7 +157,7 @@ r: 5 min
 
 2. return 404 when GET by userId and orderId fails  
 e: 5 min  
-r: 
+r: 5 min
 
 3. return order when GET by userId and orderId  
 e: 15 min

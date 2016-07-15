@@ -103,4 +103,11 @@ public class OrderApiTest extends ApiSupport{
 
     assertThat(get.getStatus(), is(200));
   }
+
+  @Test
+  public void should_return_404_when_get_order_by_id_fails() {
+    Response get = get("users/" + userId + "/orders/123");
+
+    assertThat(get.getStatus(), is(404));
+  }
 }
