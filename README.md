@@ -131,11 +131,11 @@ reason: to be described
 
 5. return 201 when POST order with parameters  
 e: 15 min  
-r:  
+r: 20 min 
 
 6. return 500 when POST order fails  
 e: 5 min  
-r:
+r: 3 min
 
 7. return 200 when GET orders  
 e: 5 min  

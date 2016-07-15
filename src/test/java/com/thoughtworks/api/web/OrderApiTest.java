@@ -74,4 +74,19 @@ public class OrderApiTest extends ApiSupport{
 
     assertThat(post.getStatus(), is(201));
   }
+
+  @Test
+  public void return_500_when_post_with_invalid_parameters() {
+    Map<String, Object> orderItem1 = TestHelper.orderItemMap(3, orderId, productId1);
+    Map<String, Object> orderItem2 = TestHelper.orderItemMap(1, orderId, productId2);
+    List<Map<String, Object>> orderItems = new ArrayList<>();
+    orderItems.add(orderItem1);
+    orderItems.add(orderItem2);
+
+    Map<String, Object> info = TestHelper.orderMap(orderItems);
+    info.replace("name", 123);
+
+    Response post = post("users/" + userId + "/orders", info);
+    assertThat(post.getStatus(), is(500));
+  }
 }
