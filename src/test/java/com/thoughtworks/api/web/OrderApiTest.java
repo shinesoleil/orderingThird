@@ -96,4 +96,11 @@ public class OrderApiTest extends ApiSupport{
 
     assertThat(get.readEntity(List.class).size(), is(0));
   }
+
+  @Test
+  public void should_return_200_when_get_order_by_id() {
+    Response get = get("users/" + userId + "/orders/" + orderId);
+
+    assertThat(get.getStatus(), is(200));
+  }
 }

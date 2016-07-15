@@ -83,4 +83,10 @@ public class UsersApi {
   public List<Order> getOrders() {
     return orderRepository.find();
   }
+
+  @GET
+  @Path("{userId}/orders/{orderId}")
+  public Response getOrderById() {
+    return Response.status(200).build();
+  }
 }

@@ -153,7 +153,7 @@ r: 8 min
 
 1. return 200 when GET by userId and orderId  
 e: 5 min  
-r:  
+r: 5 min
 
 2. return 404 when GET by userId and orderId fails  
 e: 5 min  
