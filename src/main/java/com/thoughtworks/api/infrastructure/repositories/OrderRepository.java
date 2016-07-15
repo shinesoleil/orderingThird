@@ -5,6 +5,7 @@ import com.thoughtworks.api.infrastructure.mybatis.mappers.OrderMapper;
 import com.thoughtworks.api.infrastructure.records.Order;
 
 import javax.inject.Inject;
+import java.util.List;
 import java.util.UUID;
 
 public class OrderRepository implements com.thoughtworks.api.domain.core.OrderRepository {
@@ -29,5 +30,10 @@ public class OrderRepository implements com.thoughtworks.api.domain.core.OrderRe
   @Override
   public Order findById(String id) {
     return orderMapper.findById(id);
+  }
+
+  @Override
+  public List<Order> find() {
+    return orderMapper.find();
   }
 }

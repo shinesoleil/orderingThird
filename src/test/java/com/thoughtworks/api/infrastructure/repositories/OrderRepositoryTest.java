@@ -1,12 +1,12 @@
 package com.thoughtworks.api.infrastructure.repositories;
 
-
 import com.thoughtworks.api.domain.core.ProductRepository;
 import com.thoughtworks.api.domain.core.UserRepository;
 import com.thoughtworks.api.infrastructure.records.Order;
 import com.thoughtworks.api.infrastructure.records.OrderItem;
 import com.thoughtworks.api.support.DatabaseTestRunner;
 import com.thoughtworks.api.support.TestHelper;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -29,14 +29,21 @@ public class OrderRepositoryTest {
   @Inject
   ProductRepository productRepository;
 
-  @Test
-  public void should_create_order_with_parameters_and_find_by_userId_and_orderId() {
-    String productId1 = productRepository.generateId();
-    String productId2 = productRepository.generateId();
-    String userId = userRepository.generateId();
-    String orderId = orderRepository.generateId();
-    String orderItemId1 = orderRepository.generateOrderItemId();
-    String orderItemId2 = orderRepository.generateOrderItemId();
+  String productId1;
+  String productId2;
+  String userId;
+  String orderId ;
+  String orderItemId1;
+  String orderItemId2;
+
+  @Before
+  public void set_up() {
+    productId1 = productRepository.generateId();
+    productId2 = productRepository.generateId();
+    userId = userRepository.generateId();
+    orderId = orderRepository.generateId();
+    orderItemId1 = orderRepository.generateOrderItemId();
+    orderItemId2 = orderRepository.generateOrderItemId();
 
     OrderItem orderItem1 = new OrderItem(orderItemId1, 3, productId1);
     OrderItem orderItem2 = new OrderItem(orderItemId2, 1, productId2);
@@ -49,8 +56,20 @@ public class OrderRepositoryTest {
     productRepository.create(TestHelper.product(productId2, 210));
     userRepository.create(TestHelper.user(userId));
     orderRepository.create(order, userId);
+  }
+
+  @Test
+  public void should_create_order_with_parameters_and_find_by_userId_and_orderId() {
+
     Order createdOrder = orderRepository.findById(orderId);
 
     assertThat(createdOrder.getId(), is(orderId));
+  }
+
+  @Test
+  public void should_find_all_orders() {
+    List<Order> orders = orderRepository.find();
+
+    assertThat(orders.size(), is(1));
   }
 }

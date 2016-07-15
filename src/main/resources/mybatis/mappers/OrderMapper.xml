@@ -12,4 +12,9 @@
         WHERE O.id = #{id}
     </select>
 
+    <select id="find" resultMap="records.order">
+        SELECT *
+        FROM orders O
+    </select>
+
 </mapper>

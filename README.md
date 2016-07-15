@@ -143,7 +143,7 @@ r: 3 min
 
 8. find orders  
 e: 15 min  
-r: 
+r: 15 min
 
 9. return a list of order when GET orders  
 e: 10 min  
