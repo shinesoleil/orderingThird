@@ -59,4 +59,14 @@ public class PaymentApiTest extends ApiSupport {
 
     assertThat(post.getStatus(), is(201));
   }
+
+  @Test
+  public void should_return_500_when_post_payment_fails() {
+    Map<String, Object> info = TestHelper.paymentMap(orderId);
+    info.remove("payType");
+
+    Response post = post("users/" + userId + "/orders/" + orderId + "/payment", info);
+
+    assertThat(post.getStatus(), is(500));
+  }
 }

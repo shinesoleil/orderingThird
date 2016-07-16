@@ -180,16 +180,18 @@ r: 15 min
 
 4. create payment with parameters and find by userId and orderId  
 e: 15 min  
-r:  
+r: 0 min  
+reason: after previous practice, already able to create repository in one step 
 
 
 5. return 201 when POST with parameters  
 e: 10 min  
-r:
+r: 0 min  
+reason: the same
 
 6. return 500 when POST fails  
 e: 5 min  
-r: 
+r: 5 min
 
 7. return 200 when GET by userId and orderId  
 e: 5 min  
