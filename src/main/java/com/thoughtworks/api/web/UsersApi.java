@@ -116,4 +116,11 @@ public class UsersApi {
       throw new WebApplicationException(Response.Status.NOT_FOUND);
     }
   }
+
+  @GET
+  @Path("{userId}/orders/{orderId}/payment")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response findPayments(@PathParam("orderId") String orderId) {
+    return Response.status(200).build();
+  }
 }

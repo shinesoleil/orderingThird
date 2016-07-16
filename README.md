@@ -177,7 +177,6 @@ reason: test became complicated.
 e: 8 min  
 r: 15 min
 
-
 4. create payment with parameters and find by userId and orderId  
 e: 15 min  
 r: 0 min  
@@ -193,9 +192,9 @@ reason: the same
 e: 5 min  
 r: 5 min
 
-7. return 200 when GET by userId and orderId  
+7. return 200 when GET payments by orderId  
 e: 5 min  
-r:  
+r: 7 min
 
 8. return 404 when GET by userId and orderId fails  
 e: 5 min  
