@@ -4,6 +4,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.thoughtworks.api.domain.core.OrderRepository;
+import com.thoughtworks.api.domain.core.PaymentRepository;
 import com.thoughtworks.api.domain.core.ProductRepository;
 import com.thoughtworks.api.domain.core.UserRepository;
 import com.thoughtworks.api.domain.userExample.EncryptionService;
@@ -63,6 +64,7 @@ public class Api extends ResourceConfig {
                 bind(com.thoughtworks.api.infrastructure.repositories.ProductRepository.class).to(ProductRepository.class);
                 bind(com.thoughtworks.api.infrastructure.repositories.UserRepository.class).to(UserRepository.class);
                 bind(com.thoughtworks.api.infrastructure.repositories.OrderRepository.class).to(OrderRepository.class);
+                bind(com.thoughtworks.api.infrastructure.repositories.PaymentRepository.class).to(PaymentRepository.class);
                 bind(DefaultEncryptionService.class).to(EncryptionService.class);
             }
         });

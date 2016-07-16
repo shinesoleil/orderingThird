@@ -1,9 +1,11 @@
 package com.thoughtworks.api.web;
 
 import com.thoughtworks.api.domain.core.OrderRepository;
+import com.thoughtworks.api.domain.core.PaymentRepository;
 import com.thoughtworks.api.domain.core.UserRepository;
 import com.thoughtworks.api.infrastructure.records.Order;
 import com.thoughtworks.api.infrastructure.records.OrderItem;
+import com.thoughtworks.api.infrastructure.records.Payment;
 import com.thoughtworks.api.infrastructure.records.User;
 
 import javax.inject.Inject;
@@ -19,6 +21,9 @@ public class UsersApi {
 
   @Inject
   OrderRepository orderRepository;
+
+  @Inject
+  PaymentRepository paymentRepository;
 
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
@@ -96,7 +101,19 @@ public class UsersApi {
 
   @POST
   @Path("{userId}/orders/{orderId}/payment")
-  public Response createPayment() {
-    return Response.status(201).build();
+  @Consumes(MediaType.APPLICATION_JSON)
+  public Response createPayment(HashMap<String, Object> info,
+                                @PathParam("orderId") String orderId) {
+    info.put("orderId", orderId);
+
+    paymentRepository.create(info);
+
+    Payment payment = paymentRepository.findByOrderId(orderId);
+
+    if (payment != null) {
+      return Response.status(201).build();
+    } else {
+      throw new WebApplicationException(Response.Status.NOT_FOUND);
+    }
   }
 }

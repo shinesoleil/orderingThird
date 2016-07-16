@@ -1,18 +1,16 @@
-package com.thoughtworks.api.web;
+package com.thoughtworks.api.infrastructure.repositories;
 
 import com.thoughtworks.api.domain.core.ProductRepository;
 import com.thoughtworks.api.domain.core.UserRepository;
 import com.thoughtworks.api.infrastructure.records.OrderItem;
-import com.thoughtworks.api.infrastructure.repositories.OrderRepository;
-import com.thoughtworks.api.support.ApiSupport;
-import com.thoughtworks.api.support.ApiTestRunner;
+import com.thoughtworks.api.infrastructure.records.Payment;
+import com.thoughtworks.api.support.DatabaseTestRunner;
 import com.thoughtworks.api.support.TestHelper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import javax.inject.Inject;
-import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -20,8 +18,10 @@ import java.util.Map;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-@RunWith(ApiTestRunner.class)
-public class PaymentApiTest extends ApiSupport {
+@RunWith(DatabaseTestRunner.class)
+public class PaymentRepositoryTest {
+  @Inject
+  PaymentRepository paymentRepository;
 
   @Inject
   OrderRepository orderRepository;
@@ -50,13 +50,19 @@ public class PaymentApiTest extends ApiSupport {
     List<OrderItem> orderItems = new ArrayList<>();
     orderItems.add(orderItem);
     orderRepository.create(TestHelper.order(orderId, orderItems), userId);
+
   }
+
   @Test
-  public void should_return_201_when_post_payment() {
+  public void should_create_payment_with_amount_and_find_by_orderId() {
     Map<String, Object> info = TestHelper.paymentMap(orderId);
 
-    Response post = post("users/" + userId + "/orders/" + orderId + "/payment", info);
+    paymentRepository.create(info);
 
-    assertThat(post.getStatus(), is(201));
+    Payment payment = paymentRepository.findByOrderId(orderId);
+
+    assertThat(payment.getOrderId(), is(orderId));
   }
+
+
 }

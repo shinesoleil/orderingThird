@@ -170,10 +170,12 @@ r: 7 min
 
 2. create payment with amount and find by userId and orderId  
 e: 20 min  
-r:
+r: 40 min  
+reason: test became complicated.
 
 3. return 201 when POST with amount  
 e: 8 min  
+r: 15 min
 
 
 4. create payment with parameters and find by userId and orderId  

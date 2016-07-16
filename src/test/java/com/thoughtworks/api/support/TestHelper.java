@@ -105,4 +105,14 @@ public class TestHelper {
     public static Order order(String id, List<OrderItem> orderItems) {
         return new Order(id, "order" + id, "Beijing", "13099999999", new Date(), orderItems);
     }
+
+    public static Map<String, Object> paymentMap(String orderId) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("orderId", orderId);
+        map.put("payType", "cash");
+        map.put("payTime", new Date());
+        map.put("amount", 1000);
+
+        return map;
+    }
 }
