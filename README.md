@@ -200,6 +200,7 @@ r: 7 min
 e: 10 min  
 r: 9 min
 
-9. return payment when GET by userId and orderId  
+9. return payments when GET 
 e: 10 min  
-r: 
+r: 30 min  
+reason: should have implemented Record

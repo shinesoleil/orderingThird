@@ -10,6 +10,7 @@ import com.thoughtworks.api.infrastructure.records.User;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.*;
@@ -120,7 +121,11 @@ public class UsersApi {
   @GET
   @Path("{userId}/orders/{orderId}/payment")
   @Produces(MediaType.APPLICATION_JSON)
-  public Response findPayments(@PathParam("orderId") String orderId) {
-    return Response.status(200).build();
+  public Response findPayments() {
+    List<Payment> payments = paymentRepository.find();
+
+    System.out.println(payments.get(0).getOrderId() + "hahahahaha");
+
+    return Response.ok(new GenericEntity<List<Payment>>(payments) {}).build();
   }
 }

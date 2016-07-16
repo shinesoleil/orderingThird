@@ -1,8 +1,11 @@
 package com.thoughtworks.api.infrastructure.records;
 
-import java.util.Date;
+import com.thoughtworks.api.web.jersey.Routes;
 
-public class Payment {
+import java.util.Date;
+import java.util.Map;
+
+public class Payment implements Record{
   private String orderId;
   private String payType;
   private Date payTime;
@@ -20,5 +23,15 @@ public class Payment {
 
   public String getOrderId() {
     return this.orderId;
+  }
+
+  @Override
+  public Map<String, Object> toRefJson(Routes routes) {
+    return null;
+  }
+
+  @Override
+  public Map<String, Object> toJson(Routes routes) {
+    return null;
   }
 }

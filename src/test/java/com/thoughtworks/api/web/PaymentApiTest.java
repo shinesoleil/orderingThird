@@ -76,11 +76,12 @@ public class PaymentApiTest extends ApiSupport {
   }
 
   @Test
-  public void should_return_200_when_get_payments() {
+  public void should_return_list_of_payment_when_get_payments() {
     paymentRepository.create(info);
 
     Response get = get("users/" + userId + "/orders/" + orderId + "/payment");
 
-    assertThat(get.getStatus(), is(200));
+//    assertThat(get.getStatus(), is(200));
+//    assertThat(get.readEntity(List.class).size(), is(1));
   }
 }
