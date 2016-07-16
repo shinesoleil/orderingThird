@@ -4,6 +4,7 @@ import com.thoughtworks.api.infrastructure.mybatis.mappers.PaymentMapper;
 import com.thoughtworks.api.infrastructure.records.Payment;
 
 import javax.inject.Inject;
+import java.util.List;
 import java.util.Map;
 
 public class PaymentRepository implements com.thoughtworks.api.domain.core.PaymentRepository {
@@ -19,4 +20,11 @@ public class PaymentRepository implements com.thoughtworks.api.domain.core.Payme
   public Payment findByOrderId(String id) {
     return paymentMapper.findByOrderId(id);
   }
+
+  @Override
+  public List<Payment> find() {
+    return paymentMapper.find();
+  }
+
+
 }

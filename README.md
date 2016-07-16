@@ -196,10 +196,10 @@ r: 5 min
 e: 5 min  
 r: 7 min
 
-8. return 404 when GET by userId and orderId fails  
-e: 5 min  
-r:  
+8. find all payments  
+e: 10 min  
+r: 9 min
 
 9. return payment when GET by userId and orderId  
 e: 10 min  
-r:
+r: 

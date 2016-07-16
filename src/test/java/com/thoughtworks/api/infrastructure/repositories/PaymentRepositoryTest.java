@@ -64,5 +64,15 @@ public class PaymentRepositoryTest {
     assertThat(payment.getOrderId(), is(orderId));
   }
 
+  @Test
+  public void should_find_all_payments() {
+    Map<String, Object> info = TestHelper.paymentMap(orderId);
+
+    paymentRepository.create(info);
+
+    List<Payment> payments = paymentRepository.find();
+
+    assertThat(payments.size(), is(1));
+  }
 
 }

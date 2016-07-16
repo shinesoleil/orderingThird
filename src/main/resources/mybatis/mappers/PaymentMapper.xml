@@ -12,5 +12,10 @@
         WHERE P.order_id = #{orderId}
     </select>
 
+    <select id="find" resultMap="records.payment">
+        SELECT *
+        FROM payments
+    </select>
+
 
 </mapper>
